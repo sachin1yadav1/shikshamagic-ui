@@ -29,11 +29,20 @@ pnpm add shikshamagic-ui
 yarn add shikshamagic-ui
 ```
 
-### Peer Dependencies
-Make sure you have React installed:
-```bash
-npm install react react-dom
+### Icon Font & Micro-Animations
+The library uses the official **[MingCute](https://www.mingcute.com)** icon library (2,800+ icons) and **[MingCute Animations](https://www.mingcute.com/animation)**. Add the official stylesheet into your `index.html`:
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mingcute_icon@2.9.72/font/Mingcute.min.css" />
 ```
+
+Available animation classes:
+- `.mgc-spin` — Smooth continuous rotation
+- `.mgc-pulse` — Heartbeat scaling pulse
+- `.mgc-bounce` — Subtle vertical bounce
+- `.mgc-wave` — Greeting wave oscillation
+- `.mgc-flip` — 3D horizontal flip
+- `.mgc-hover-bounce` / `.mgc-hover-spin` — Trigger animation on hover
 
 ---
 
