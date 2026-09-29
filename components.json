@@ -1,0 +1,156 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "shikshamagic-ui",
+  "version": "1.0.0",
+  "description": "Machine-readable component metadata and prop schemas for AI coding assistants.",
+  "rootProvider": "ThemeProvider",
+  "components": {
+    "Button": {
+      "category": "atoms",
+      "description": "Standard actionable button with variants, loaders, and icons.",
+      "props": {
+        "variant": { "type": "enum", "values": ["primary", "secondary", "success", "error", "warning", "info"], "default": "primary" },
+        "type": { "type": "enum", "values": ["solid", "outline", "ghost", "flat"], "default": "solid" },
+        "size": { "type": "enum", "values": ["2xs", "xs", "sm", "md", "lg"], "default": "md" },
+        "loading": { "type": "boolean", "default": false },
+        "disabled": { "type": "boolean", "default": false },
+        "icon": { "type": "string", "description": "Name of icon from icon library" },
+        "iconPosition": { "type": "enum", "values": ["start", "end"], "default": "start" },
+        "action": { "type": "enum", "values": ["button", "submit", "reset"], "default": "button" }
+      }
+    },
+    "IconButton": {
+      "category": "atoms",
+      "description": "Icon-only button.",
+      "props": {
+        "icon": { "type": "string", "required": true },
+        "variant": { "type": "enum", "values": ["primary", "secondary", "success", "error", "warning", "info"] },
+        "size": { "type": "enum", "values": ["2xs", "xs", "sm", "md", "lg"] }
+      }
+    },
+    "Input": {
+      "category": "atoms",
+      "description": "Form text input with validation, icons, and error states.",
+      "props": {
+        "label": { "type": "string" },
+        "placeholder": { "type": "string" },
+        "type": { "type": "enum", "values": ["text", "search", "number"], "default": "text" },
+        "size": { "type": "enum", "values": ["sm", "md", "lg"], "default": "md" },
+        "errorMessage": { "type": "string" },
+        "valid": { "type": "boolean" },
+        "allowClear": { "type": "boolean", "default": false },
+        "disabled": { "type": "boolean", "default": false }
+      }
+    },
+    "PhoneInput": {
+      "category": "atoms",
+      "description": "International telephone number input with country selector.",
+      "props": {
+        "label": { "type": "string" },
+        "placeholder": { "type": "string" },
+        "defaultCountryCode": { "type": "string", "default": "IN" },
+        "allowSearch": { "type": "boolean", "default": true }
+      }
+    },
+    "TextArea": {
+      "category": "atoms",
+      "description": "Multi-line input field.",
+      "props": {
+        "label": { "type": "string" },
+        "placeholder": { "type": "string" },
+        "rows": { "type": "number", "default": 4 },
+        "errorMessage": { "type": "string" }
+      }
+    },
+    "Select": {
+      "category": "atoms",
+      "description": "Dropdown select component with support for multiselect and search.",
+      "props": {
+        "options": { "type": "array", "required": true, "items": { "label": "string", "value": "any", "disabled": "boolean" } },
+        "multiSelect": { "type": "boolean", "default": false },
+        "allowSearch": { "type": "boolean", "default": false }
+      }
+    },
+    "Card": {
+      "category": "molecules",
+      "description": "Container card with optional heading, subheading, and actions.",
+      "props": {
+        "heading": { "type": "node" },
+        "subheading": { "type": "node" },
+        "children": { "type": "node", "required": true }
+      }
+    },
+    "Modal": {
+      "category": "atoms",
+      "description": "Animated modal dialog window.",
+      "props": {
+        "open": { "type": "boolean", "required": true },
+        "onClose": { "type": "function", "required": true },
+        "title": { "type": "node" },
+        "children": { "type": "node", "required": true }
+      }
+    },
+    "Drawer": {
+      "category": "atoms",
+      "description": "Slide-out panel sheet from screen edge.",
+      "props": {
+        "open": { "type": "boolean", "required": true },
+        "onClose": { "type": "function", "required": true },
+        "title": { "type": "node" },
+        "children": { "type": "node", "required": true }
+      }
+    },
+    "Table": {
+      "category": "molecules",
+      "description": "Tabular data presentation.",
+      "props": {
+        "columns": { "type": "array", "required": true, "items": { "key": "string", "title": "string", "dataIndex": "string" } },
+        "dataSource": { "type": "array", "required": true },
+        "loading": { "type": "boolean", "default": false }
+      }
+    },
+    "Alert": {
+      "category": "atoms",
+      "description": "Alert banner for statuses.",
+      "props": {
+        "title": { "type": "string" },
+        "message": { "type": "string" },
+        "variant": { "type": "enum", "values": ["success", "warning", "error", "info"] }
+      }
+    },
+    "Switch": {
+      "category": "atoms",
+      "description": "Toggle switch control.",
+      "props": {
+        "checked": { "type": "boolean" },
+        "variant": { "type": "enum", "values": ["primary", "secondary"] }
+      }
+    },
+    "Checkbox": {
+      "category": "atoms",
+      "description": "Checkbox control.",
+      "props": {
+        "checked": { "type": "boolean" },
+        "variant": { "type": "enum", "values": ["primary", "secondary"] }
+      }
+    },
+    "Rating": {
+      "category": "atoms",
+      "description": "Star rating input.",
+      "props": {
+        "value": { "type": "number" },
+        "count": { "type": "number", "default": 5 },
+        "readOnly": { "type": "boolean", "default": false }
+      }
+    },
+    "Avatar": {
+      "category": "atoms",
+      "description": "User profile avatar.",
+      "props": {
+        "title": { "type": "string" },
+        "src": { "type": "string" },
+        "size": { "type": "enum", "values": ["2xs", "xs", "sm", "md", "lg"] }
+      }
+    }
+  }
+}

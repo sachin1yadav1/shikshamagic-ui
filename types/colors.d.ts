@@ -1,0 +1,10 @@
+import { PresetColorsArr } from '../utilities/constants';
+type TextColors = 'textTitle' | 'textBody' | 'textSubtitle' | 'textDisabled';
+type BackgroundColors = 'surface' | 'surfaceAlt' | 'background';
+type BorderColors = 'divider' | 'border' | 'borderBackground' | 'disabled';
+type PresetColors = (typeof PresetColorsArr)[number];
+type ColorVariants<T extends 'primary' | 'secondary'> = `${T}` | `${T}Dark` | `${T}Darker` | `${T}Light` | `${T}Lighter` | `${T}LighterAlt`;
+type GeneratedColors = ColorVariants<'primary'> | ColorVariants<'secondary'> | 'infoFill' | 'successFill' | 'warningFill' | 'errorFill';
+type BaseColors = Record<TextColors | BackgroundColors | BorderColors | PresetColors, string>;
+type Colors = Record<TextColors | BackgroundColors | BorderColors | PresetColors | GeneratedColors, string>;
+export { BackgroundColors, BaseColors, BorderColors, Colors, ColorVariants, GeneratedColors, PresetColors, TextColors, };

@@ -1,0 +1,223 @@
+# shikshamagic-ui — LLM & AI Assistant Context Manifest
+> This file is optimized for consumption by Large Language Models (LLMs), AI coding agents (Cursor, Copilot, Claude, ChatGPT, Gemini, Devin) to generate valid, bug-free React code with `shikshamagic-ui`.
+
+## Package Identity
+- Package Name: `shikshamagic-ui`
+- Description: Enterprise-grade, animation-powered React UI library & design system for EdTech, creators, and modern web apps.
+- Imports: All components are exported from the package root:
+  `import { ThemeProvider, Button, Input, Card, Modal, Table, ... } from 'shikshamagic-ui';`
+
+## Mandatory Rule
+Always wrap your application or component tree with `<ThemeProvider>`:
+```tsx
+import { ThemeProvider } from 'shikshamagic-ui';
+
+<ThemeProvider>
+  <YourComponents />
+</ThemeProvider>
+```
+
+---
+
+## Component Reference & Types
+
+### 1. Button
+- Export: `Button`
+- Props:
+  - `variant`: `'primary' | 'secondary' | 'success' | 'error' | 'warning' | 'info'` (default: `'primary'`)
+  - `type`: `'solid' | 'outline' | 'ghost' | 'flat'` (default: `'solid'`)
+  - `size`: `'2xs' | 'xs' | 'sm' | 'md' | 'lg'` (default: `'md'`)
+  - `disabled`: `boolean`
+  - `loading`: `boolean`
+  - `icon`: `IconName` (string name of icon from `shikshamagic-ui`)
+  - `iconPosition`: `'start' | 'end'`
+  - `action`: `'button' | 'submit' | 'reset'`
+  - `children`: `React.ReactNode`
+- Example:
+  `<Button variant="primary" type="solid" loading={false}>Submit Course</Button>`
+
+### 2. IconButton
+- Export: `IconButton`
+- Props:
+  - `icon`: `IconName` (e.g. `'search_line'`, `'notification_line'`, `'add_line'`, `'delete_line'`, `'edit_line'`, `'settings_line'`)
+  - `variant`: `'primary' | 'secondary' | 'success' | 'error' | 'warning' | 'info'`
+  - `size`: `'2xs' | 'xs' | 'sm' | 'md' | 'lg'`
+  - `onClick`: `() => void`
+- Example:
+  `<IconButton icon="search_line" variant="primary" onClick={handleSearch} />`
+
+### 3. Input & PhoneInput
+- Export: `Input`, `PhoneInput`
+- `Input` Props:
+  - `label`: `string`
+  - `placeholder`: `string`
+  - `value`: `string | number`
+  - `defaultValue`: `string | number`
+  - `type`: `'text' | 'search' | 'number'`
+  - `size`: `'sm' | 'md' | 'lg'`
+  - `errorMessage`: `string`
+  - `valid`: `boolean`
+  - `allowClear`: `boolean`
+  - `description`: `string`
+  - `leadingIcon`: `React.ReactNode`
+  - `trailingIcon`: `React.ReactNode`
+  - `onChange`: `(e: React.ChangeEvent<HTMLInputElement>) => void`
+- `PhoneInput` Props:
+  - All `Input` props plus:
+  - `defaultCountryCode`: `string` (e.g. `'IN'`, `'US'`, `'GB'`)
+  - `allowSearch`: `boolean`
+  - `onChangeCountryCode`: `(code: string) => void`
+- Example:
+  `<Input label="Student Email" placeholder="student@example.com" type="text" />`
+  `<PhoneInput label="WhatsApp Number" defaultCountryCode="IN" />`
+
+### 4. TextArea
+- Export: `TextArea`
+- Props:
+  - `label`: `string`
+  - `placeholder`: `string`
+  - `value`: `string`
+  - `rows`: `number` (default: 4)
+  - `errorMessage`: `string`
+  - `onChange`: `(e: React.ChangeEvent<HTMLTextAreaElement>) => void`
+- Example:
+  `<TextArea label="Course Description" rows={4} placeholder="Describe this syllabus..." />`
+
+### 5. Card
+- Export: `Card`
+- Props:
+  - `heading`: `React.ReactNode`
+  - `subheading`: `React.ReactNode`
+  - `children`: `React.ReactNode`
+  - `actions`: `React.ReactNode`
+- Example:
+  ```tsx
+  <Card heading="Advanced System Design" subheading="Batch 2026">
+    <p>32 Lectures, 14 Assignments completed.</p>
+    <Button variant="primary">Resume Lesson</Button>
+  </Card>
+  ```
+
+### 6. Modal
+- Export: `Modal`
+- Props:
+  - `open`: `boolean`
+  - `onClose`: `() => void`
+  - `title`: `React.ReactNode`
+  - `children`: `React.ReactNode`
+- Example:
+  ```tsx
+  <Modal open={isOpen} onClose={() => setIsOpen(false)} title="Create Batch">
+    <div>Modal content here</div>
+  </Modal>
+  ```
+
+### 7. Drawer
+- Export: `Drawer`
+- Props:
+  - `open`: `boolean`
+  - `onClose`: `() => void`
+  - `title`: `React.ReactNode`
+  - `children`: `React.ReactNode`
+- Example:
+  ```tsx
+  <Drawer open={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} title="Filters">
+    <div>Filter by category, price, rating</div>
+  </Drawer>
+  ```
+
+### 8. Table
+- Export: `Table`
+- Props:
+  - `columns`: `Array<{ key: string, title: string, dataIndex: string }>`
+  - `dataSource`: `Array<Record<string, any>>`
+  - `loading`: `boolean`
+- Example:
+  ```tsx
+  const cols = [
+    { key: 'name', title: 'Course Name', dataIndex: 'name' },
+    { key: 'students', title: 'Enrolled', dataIndex: 'students' },
+    { key: 'revenue', title: 'Revenue', dataIndex: 'revenue' },
+  ];
+  const data = [
+    { key: '1', name: 'Full Stack AI', students: '1,240', revenue: '₹4,99,000' },
+  ];
+  <Table columns={cols} dataSource={data} />
+  ```
+
+### 9. Alert
+- Export: `Alert`
+- Props:
+  - `title`: `string`
+  - `message`: `string`
+  - `variant`: `'success' | 'warning' | 'error' | 'info'`
+  - `onClose`: `() => void`
+- Example:
+  `<Alert title="Registration Live" message="Admissions open for summer cohort." variant="success" />`
+
+### 10. Checkbox & Switch & RadioGroup
+- Exports: `Checkbox`, `Switch`, `Radio`, `RadioGroup`
+- `Checkbox`: `<Checkbox checked={val} onChange={() => setVal(!val)}>Accept terms</Checkbox>`
+- `Switch`: `<Switch checked={val} onChange={() => setVal(!val)}>Dark Mode</Switch>`
+- `RadioGroup`:
+  ```tsx
+  <RadioGroup value={val} onChange={setVal}>
+    <Radio value="monthly">Monthly Plan</Radio>
+    <Radio value="yearly">Annual Plan</Radio>
+  </RadioGroup>
+  ```
+
+### 11. Tag & Badge & Rating
+- `Tag`: `<Tag variant="primary">Featured</Tag>` (`variant="primary" | "secondary" | "success" | "warning" | "error"`)
+- `Badge`: `<Badge count={5}><IconButton icon="notification_line" /></Badge>`
+- `Rating`: `<Rating value={4.5} count={5} onChange={(val) => setRating(val)} />`
+
+### 12. Avatar & AvatarGroup
+- `Avatar`: `<Avatar title="Sachin Yadav" size="md" />`
+- `AvatarGroup`: `<AvatarGroup avatars={[{ title: 'A' }, { title: 'B' }]} max={3} />`
+
+### 13. Select
+- Export: `Select`
+- Props:
+  - `options`: `Array<{ label: React.ReactNode, value: any, disabled?: boolean }>`
+  - `multiSelect`: `boolean`
+  - `allowSearch`: `boolean`
+  - `onSelect`: `(selectedValues: any[], selectedOptions: any[]) => void`
+- Example:
+  ```tsx
+  <Select
+    options={[
+      { label: 'Frontend Engineering', value: 'fe' },
+      { label: 'Data Science', value: 'ds' },
+    ]}
+    onSelect={(val) => console.log(val)}
+  />
+  ```
+
+### 14. Collapse (Accordion)
+- Export: `Collapse`
+- Props:
+  - `sections`: `Array<{ id: string, title: React.ReactNode, children: React.ReactNode }>`
+  - `variant`: `'outlined' | 'ghost' | 'filled'`
+
+### 15. Toast & Toaster
+- Export: `toast`, `Toaster`
+- Usage:
+  1. Mount `<Toaster />` once near your root.
+  2. Call `toast.success('Course created successfully!')` or `toast.error('Failed to save.')`.
+
+---
+
+## Icon Reference
+Over 2,800 icons available in `<Icon name="icon_name" size={20} />` and `<IconButton icon="icon_name" />`. Common ones:
+- `search_line`, `search_fill`
+- `add_line`, `add_circle_line`
+- `close_line`, `close_circle_line`
+- `check_line`, `check_circle_line`
+- `arrow_right_line`, `arrow_left_line`, `arrow_down_line`, `arrow_up_line`
+- `notification_line`, `notification_fill`
+- `user_line`, `contacts_line`
+- `calendar_line`, `time_line`
+- `settings_line`, `edit_line`, `delete_line`
+- `download_line`, `upload_line`
+- `eye_line`, `eye_off_line`

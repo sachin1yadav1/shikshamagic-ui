@@ -1,0 +1,73 @@
+{
+  "name": "shikshamagic-ui",
+  "version": "1.0.0",
+  "description": "Production-ready, highly interactive React UI component library and design system for ShikshaMagic & EdTech creator platforms, optimized for human developers and AI code generators.",
+  "main": "./index.js",
+  "module": "./index.mjs",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.mjs",
+      "require": "./index.js"
+    },
+    "./llms.txt": "./llms.txt",
+    "./components.json": "./components.json",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "components",
+    "context",
+    "foundations",
+    "themes",
+    "types",
+    "utilities",
+    "index.js",
+    "index.mjs",
+    "index.d.ts",
+    "components.json",
+    "llms.txt",
+    "README.md",
+    "LICENSE.md"
+  ],
+  "keywords": [
+    "react",
+    "ui-kit",
+    "design-system",
+    "components",
+    "shikshamagic",
+    "edtech",
+    "gsap",
+    "jss",
+    "ai-ready",
+    "llm-friendly"
+  ],
+  "author": "ShikshaMagic",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">=16.8.0 || ^18.0.0 || ^19.0.0",
+    "react-dom": ">=16.8.0 || ^18.0.0 || ^19.0.0"
+  },
+  "dependencies": {
+    "@gsap/react": "^2.1.0",
+    "@hookform/resolvers": "^3.4.2",
+    "chroma-js": "^2.4.2",
+    "gsap": "^3.12.5",
+    "react-hook-form": "^7.51.5",
+    "react-jss": "^10.10.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/chroma-js": "^2.4.3",
+    "@types/react": "^18.3.0 || ^19.0.0",
+    "@types/react-dom": "^18.3.0 || ^19.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sachin1yadav1/shikshamagic-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sachin1yadav1/shikshamagic-ui/issues"
+  },
+  "homepage": "https://github.com/sachin1yadav1/shikshamagic-ui#readme"
+}
